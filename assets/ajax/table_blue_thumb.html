@@ -1,0 +1,43 @@
+<h2>Poin Data Blue Thumbs</h2>
+<table id="table_blue_thumb" class="table table-bordered table-striped tabel-hover" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>ID </th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Quantity</th>
+      <th> Status</th>
+      <th> Remarks</th>
+      <th> Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+
+<script>
+
+$(document).ready(function() {
+  table_like_this = $('#table_blue_thumb').DataTable({
+
+    "processing": true, //Feature control the processing indicator.
+    "serverSide": true, //Feature control DataTables' server-side processing mode.
+
+    // Load data for the table's content from an Ajax source
+    "ajax": {
+        "url": "list_blue_thums",
+        "type": "POST"
+    },
+
+    //Set column definition initialisation properties.
+    "columnDefs": [
+    {
+      "targets": [ -1 ], //last column
+      "orderable": false, //set not orderable
+    },
+    ],
+
+  });
+});
+</script>
