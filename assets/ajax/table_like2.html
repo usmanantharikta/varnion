@@ -1,0 +1,111 @@
+
+<h2>Poin Data Like This!</h2>
+<button class="btn btn-raised btn-success"onclick=""><i class="glyphicon glyphicon-plus"></i> Add Poin Like This!</button>
+<button id="show" class="btn btn-raised btn-success"onclick=""></i>Show Saldo</button>
+<button id="show_poin" class="btn btn-raised btn-success"onclick=""></i>Show Poin</button>
+<div id="poin">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Poin Like This!</h3>
+    </div>
+    <div class="panel-body">
+      <table id="table_like_this" class="table table-bordered table-striped tabel-hover" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th rowspan="2">ID </th>
+            <th rowspan="2">Name</th>
+            <th rowspan="2">Date</th>
+            <th colspan="2">Quantity by Status </th>
+            <th rowspan="2">Remarks</th>
+            <th rowspan="2">Action</th>
+          </tr>
+          <tr>
+            <th>Available</th>
+            <th>Redeemed</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="saldo_hii">
+  <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Saldo Poin Like This!</h3>
+  </div>
+  <div class="panel-body">
+    <table id="table_poin_like_this" class="table table-bordered table-striped tabel-hover" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>ID </th>
+          <th>Name</th>
+          <th>Avalible</th>
+          <th>Redeemed</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<script>
+
+
+$(document).ready(function() {
+    $('#table_poin_like_this').DataTable( {
+        "paging":   false,
+        "ordering": true,
+        "info": false,
+        "dom": 'rt<"bottom"flp><"clear">',
+        "ajax":
+        {
+            "url": "get_point_like_this",
+            "type": "POST"
+        },
+    } );
+} );
+
+$('#show').click(function()
+{
+  $('#saldo_hii').show();
+  $('#poin').hide();
+}
+);
+
+$('#show_poin').click(function()
+{
+  $('#saldo_hii').hide();
+  $('#poin').show();
+}
+);
+
+$(document).ready(function() {
+  $('#saldo_hii').show();
+  table_like_this = $('#table_like_this').DataTable({
+
+    "processing": true, //Feature control the processing indicator.
+    "serverSide": true, //Feature control DataTables' server-side processing mode.
+
+
+    // Load data for the table's content from an Ajax source
+    "ajax": {
+        "url": "list_like_this",
+        "type": "POST"
+    },
+
+    //Set column definition initialisation properties.
+    "columnDefs": [
+    {
+      "targets": [ -1 ], //last column
+      "orderable": false, //set not orderable
+    },
+    ],
+
+  });
+});
+</script>

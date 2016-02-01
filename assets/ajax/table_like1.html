@@ -1,0 +1,46 @@
+<h2>Poin Data Like This!</h2>
+<button class="btn btn-raised btn-success"onclick=""><i class="glyphicon glyphicon-plus"></i> Add Poin Like This!</button>
+
+<table id="table_like_this" class="table table-bordered table-striped tabel-hover" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th rowspan="2">ID </th>
+      <th rowspan="2">Name</th>
+      <th rowspan="2">Date</th>
+      <th colspan="2">Quantity by Status </th>
+      <th rowspan="2">Remarks</th>
+      <th rowspan="2">Action</th>
+    </tr>
+    <tr>
+      <th>Available</th>
+      <th>Redeemed</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<script>
+$(document).ready(function() {
+  table_like_this = $('#table_like_this').DataTable({
+
+    "processing": true, //Feature control the processing indicator.
+    "serverSide": true, //Feature control DataTables' server-side processing mode.
+
+    // Load data for the table's content from an Ajax source
+    "ajax": {
+        "url": "list_like_this",
+        "type": "POST"
+    },
+
+    //Set column definition initialisation properties.
+    "columnDefs": [
+    {
+      "targets": [ -1 ], //last column
+      "orderable": false, //set not orderable
+    },
+    ],
+
+  });
+});
+</script>

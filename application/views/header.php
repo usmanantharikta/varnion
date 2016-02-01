@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ajax CRUD with Bootstrap modals and Datatables</title>
+    <title>Varnion Passport </title>
     <!-- Material Design fonts -->
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/datatables/css/dataTables.bootstrap.css')?>" rel="stylesheet">
@@ -41,7 +41,6 @@
 
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2" menu>
     <ul id="menu" class="nav navbar-nav">
-      <li><a href="<?php echo site_url('control_crud') ?>">Home<span class="sr-only">(current)</span></a></li>
       <li><a href="<?php echo site_url('control_crud/add') ?>">Employ Data</a></li>
       <li><a href="<?php echo site_url('control_crud/addpoint_view') ?>">Poin Data</a></li>
       <li><a href="<?php echo site_url('control_crud/addredeem_view') ?>">Redeem Data</a></li>
